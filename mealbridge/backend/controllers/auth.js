@@ -23,12 +23,6 @@ exports.register = async (req, res) => {
       });
     }
 
-    if (role === 'receiver' && !ngoRegistrationNumber) {
-      return res.status(400).json({
-        success: false,
-        message: 'NGO registration number is required for receivers'
-      });
-    }
 
     // Check if user exists
     const userExists = await User.findOne({ email });
